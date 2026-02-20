@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ÉLEV — Premium luxury streetwear brand. Explore our curated collections of modern essentials designed for the bold and refined.">
+  <meta name="keywords" content="luxury streetwear, fashion, clothing, premium apparel, designer wear">
+  <meta name="author" content="ÉLEV">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>É</text></svg>">
+  <title>ÉLEV — Luxury Streetwear</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader" role="status" aria-label="Loading">
+    <div class="loader-brand">ÉLEV</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header" role="banner">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="ÉLEV Home">ÉLEV</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button aria-label="Search" id="searchBtn">🔍</button>
+        <button aria-label="Wishlist" id="wishlistNavBtn">♡ <span class="wishlist-count" aria-live="polite">0</span></button>
+        <button aria-label="Shopping cart" id="cartBtn">
+          🛒 <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="products.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80')"></div>
+    <div class="hero-content">
+      <p class="hero-overline">New Collection 2026</p>
+      <h1 class="hero-title">Define Your <span>Elegance</span></h1>
+      <p class="hero-desc">Luxury streetwear crafted for the bold. Every thread tells a story of precision, passion, and modern sophistication.</p>
+      <div class="hero-actions">
+        <a href="products.html" class="btn btn-primary">Shop Collection</a>
+        <a href="about.html" class="btn btn-outline">Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Bar -->
+  <section class="section" aria-label="Brand features">
+    <div class="container">
+      <div class="features-bar reveal">
+        <div class="feature-item">
+          <div class="feature-icon">🚚</div>
+          <div class="feature-title">Free Shipping</div>
+          <div class="feature-desc">On orders over $150</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">✨</div>
+          <div class="feature-title">Premium Quality</div>
+          <div class="feature-desc">Handcrafted materials</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔄</div>
+          <div class="feature-title">Easy Returns</div>
+          <div class="feature-desc">30-day return policy</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-title">Secure Payment</div>
+          <div class="feature-desc">100% encrypted checkout</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section" id="categories" aria-labelledby="catTitle">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title" id="catTitle">Shop by <span class="text-accent">Category</span></h2>
+        <p class="section-subtitle">Explore our curated collections designed for every occasion</p>
+      </div>
+      <div class="grid grid-3 stagger-children">
+        <a href="products.html" class="category-card reveal" data-tilt>
+          <img src="https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=600&q=80&fit=crop" alt="Outerwear collection" loading="lazy">
+          <div class="category-card-overlay">
+            <h3 class="category-card-title">Outerwear</h3>
+          </div>
+        </a>
+        <a href="products.html" class="category-card reveal" data-tilt>
+          <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80&fit=crop" alt="T-shirts & tops collection" loading="lazy">
+          <div class="category-card-overlay">
+            <h3 class="category-card-title">T-Shirts & Tops</h3>
+          </div>
+        </a>
+        <a href="products.html" class="category-card reveal" data-tilt>
+          <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80&fit=crop" alt="Bottoms collection" loading="lazy">
+          <div class="category-card-overlay">
+            <h3 class="category-card-title">Bottoms</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section" id="featured" aria-labelledby="featTitle">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title" id="featTitle">Featured <span class="text-accent">Products</span></h2>
+        <p class="section-subtitle">Our most sought-after pieces this season</p>
+      </div>
+      <div class="grid grid-4 stagger-children" id="featuredGrid">
+        <!-- Product 1 -->
+        <article class="product-card reveal" data-tilt>
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80&fit=crop" alt="Noir Oversized Hoodie" loading="lazy">
+            <span class="product-badge">New</span>
+            <div class="product-overlay">
+              <a href="product-detail.html?id=1" class="btn btn-primary btn-sm">Quick View</a>
+            </div>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-category">Outerwear</div>
+            <h3 class="product-card-name">Noir Oversized Hoodie</h3>
+            <div class="product-card-price">$189</div>
+          </div>
+        </article>
+        <!-- Product 2 -->
+        <article class="product-card reveal" data-tilt>
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80&fit=crop" alt="Essential White Tee" loading="lazy">
+            <div class="product-overlay">
+              <a href="product-detail.html?id=2" class="btn btn-primary btn-sm">Quick View</a>
+            </div>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-category">T-Shirts</div>
+            <h3 class="product-card-name">Essential White Tee</h3>
+            <div class="product-card-price">$79</div>
+          </div>
+        </article>
+        <!-- Product 3 -->
+        <article class="product-card reveal" data-tilt>
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&q=80&fit=crop" alt="Urban Cargo Pants" loading="lazy">
+            <span class="product-badge">Best Seller</span>
+            <div class="product-overlay">
+              <a href="product-detail.html?id=3" class="btn btn-primary btn-sm">Quick View</a>
+            </div>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-category">Bottoms</div>
+            <h3 class="product-card-name">Urban Cargo Pants</h3>
+            <div class="product-card-price">$149</div>
+          </div>
+        </article>
+        <!-- Product 4 -->
+        <article class="product-card reveal" data-tilt>
+          <div class="product-card-img">
+            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=80&fit=crop" alt="Heritage Leather Jacket" loading="lazy">
+            <div class="product-overlay">
+              <a href="product-detail.html?id=4" class="btn btn-primary btn-sm">Quick View</a>
+            </div>
+          </div>
+          <div class="product-card-info">
+            <div class="product-card-category">Outerwear</div>
+            <h3 class="product-card-name">Heritage Leather Jacket</h3>
+            <div class="product-card-price">$349 <span class="old-price">$429</span></div>
+          </div>
+        </article>
+      </div>
+      <div style="text-align:center;margin-top:var(--sp-xl)">
+        <a href="products.html" class="btn btn-outline reveal">View All Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section" aria-labelledby="nlTitle">
+    <div class="container">
+      <div class="newsletter reveal">
+        <h2 class="section-title" id="nlTitle" style="margin-bottom:var(--sp-sm)">Stay <span class="text-accent">Connected</span></h2>
+        <p class="section-subtitle" style="margin-bottom:0">Subscribe to receive exclusive drops, styling tips, and 10% off your first order.</p>
+        <form class="newsletter-form" id="newsletterForm" aria-label="Newsletter signup">
+          <label for="nlEmail" class="sr-only">Email address</label>
+          <input type="email" id="nlEmail" placeholder="Enter your email" required aria-required="true">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">ÉLEV</div>
+          <p class="footer-desc">Luxury streetwear for the modern individual. Every piece is designed with intent, crafted with passion.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" aria-label="Pinterest"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="products.html?filter=new">New Arrivals</a></li>
+            <li><a href="products.html?filter=bestseller">Best Sellers</a></li>
+            <li><a href="products.html?filter=sale">Sale</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">Careers</a></li>
+            <li><a href="about.html">Press</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Support</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">FAQ</a></li>
+            <li><a href="contact.html">Shipping & Returns</a></li>
+            <li><a href="contact.html">Size Guide</a></li>
+            <li><a href="contact.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 ÉLEV. All rights reserved.</p>
+        <p>Designed with ♥ for modern fashion</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Flyout -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+  <aside class="cart-flyout" id="cartFlyout" role="dialog" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-flyout-header">
+      <h2 class="cart-flyout-title">Your Cart</h2>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span class="amount" id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn btn-primary" style="width:100%">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Wishlist Flyout -->
+  <div class="cart-overlay" id="wishlistOverlay" aria-hidden="true"></div>
+  <aside class="cart-flyout" id="wishlistFlyout" role="dialog" aria-label="Wishlist" aria-hidden="true">
+    <div class="cart-flyout-header">
+      <h2 class="cart-flyout-title">Your Wishlist</h2>
+      <button class="cart-close" id="wishlistClose" aria-label="Close wishlist">✕</button>
+    </div>
+    <div class="cart-items" id="wishlistItems"><div class="cart-empty">Your wishlist is empty</div></div>
+    <div class="cart-footer">
+      <a href="products.html" class="btn btn-primary" style="width:100%;text-align:center;text-decoration:none">Browse Products</a>
+    </div>
+  </aside>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="assertive">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toastMessage">Success!</span>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
