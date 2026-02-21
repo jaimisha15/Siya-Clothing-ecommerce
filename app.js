@@ -523,14 +523,6 @@
       if (labels[activeTag]) pageTitle.textContent = labels[activeTag];
     }
 
-    // Show products after "loading"
-    setTimeout(() => {
-      if (skeletonGrid) skeletonGrid.style.display = 'none';
-      productGrid.style.display = '';
-      applyFilters(); // Apply filters (including URL param) immediately
-      initScrollReveal(); // Re-trigger reveal for product cards
-    }, 1200);
-
     const filterCheckboxes = $$('[data-filter="category"], [data-filter="size"]');
     const colorSwatches = $$('.filter-sidebar .color-swatch');
     const priceRange = $('#priceRange');
@@ -540,6 +532,14 @@
     const clearBtn = $('#clearFilters');
     const filterToggle = $('#filterToggle');
     const filterSidebar = $('#filterSidebar');
+
+    // Show products after "loading"
+    setTimeout(() => {
+      if (skeletonGrid) skeletonGrid.style.display = 'none';
+      productGrid.style.display = '';
+      applyFilters(); // Apply filters (including URL param) immediately
+      initScrollReveal(); // Re-trigger reveal for product cards
+    }, 1200);
 
     // Mobile filter toggle
     if (filterToggle && filterSidebar) {
@@ -572,7 +572,8 @@
 
     if (priceRange) {
       priceRange.addEventListener('input', () => {
-        if (priceValue) priceValue.textContent = `₹${priceRange.value}`;
+        const val = parseInt(priceRange.value);
+        if (priceValue) priceValue.textContent = `\u20B9${val.toLocaleString('en-IN')}`;
         applyFilters();
       });
     }
