@@ -1058,6 +1058,134 @@
     initScrollReveal();
   }
 
+  /* ---------- Search Overlay ---------- */
+  function initSearch() {
+    const searchBtn = $('#searchBtn');
+    if (!searchBtn) return;
+
+    // Build overlay HTML and inject into body
+    if (!$('#searchOverlay')) {
+      const overlay = document.createElement('div');
+      overlay.id = 'searchOverlay';
+      overlay.className = 'search-overlay';
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-label', 'Search products');
+      overlay.setAttribute('aria-hidden', 'true');
+      overlay.innerHTML = `
+        <div class="search-modal">
+          <div class="search-bar">
+            <span class="search-icon-inner">🔍</span>
+            <input
+              id="searchInput"
+              type="search"
+              class="search-input"
+              placeholder="Search products, categories..."
+              autocomplete="off"
+              aria-label="Search products"
+            />
+            <button id="searchClose" class="search-close" aria-label="Close search">✕</button>
+          </div>
+          <div id="searchResults" class="search-results" role="listbox" aria-live="polite"></div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+    }
+
+    const overlay = $('#searchOverlay');
+    const input = $('#searchInput');
+    const results = $('#searchResults');
+    const closeBtn = $('#searchClose');
+    let previousFocus = null;
+
+    function openSearch() {
+      previousFocus = document.activeElement;
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => input && input.focus(), 60);
+      renderResults('');
+    }
+
+    function closeSearch() {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (input) input.value = '';
+      if (results) results.innerHTML = '';
+      if (previousFocus) previousFocus.focus();
+    }
+
+    function renderResults(query) {
+      if (!results) return;
+      const q = query.trim().toLowerCase();
+
+      // Guard if PRODUCTS not available (non-product pages)
+      if (typeof PRODUCTS === 'undefined') {
+        results.innerHTML = `
+          <div class="search-empty">
+            <div class="search-empty-icon">🔍</div>
+            <p>Start typing to search</p>
+            <a href="products.html?q=${encodeURIComponent(q)}" class="btn btn-primary" style="margin-top:1rem">Browse All Products →</a>
+          </div>`;
+        return;
+      }
+
+      const matched = q === ''
+        ? PRODUCTS.slice(0, 6)
+        : PRODUCTS.filter(p =>
+          p.name.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          (p.description && p.description.toLowerCase().includes(q))
+        ).slice(0, 8);
+
+      if (matched.length === 0) {
+        results.innerHTML = `
+          <div class="search-empty">
+            <div class="search-empty-icon">😞</div>
+            <p>No products found for "<strong>${query}</strong>"</p>
+            <a href="products.html" class="btn btn-outline" style="margin-top:1rem;display:inline-block">Browse All Products</a>
+          </div>`;
+        return;
+      }
+
+      results.innerHTML = `
+        <p class="search-hint">${q === '' ? 'Popular picks' : `${matched.length} result${matched.length !== 1 ? 's' : ''} for "${query}"`}</p>
+        <div class="search-grid">
+          ${matched.map(p => {
+        const img = (p.images && p.images[0]) ? `${p.images[0]}&w=200&q=70&fit=crop` : '';
+        const price = p.oldPrice
+          ? `<span class="search-price">$${p.price.toFixed(2)}</span><span class="search-old-price">$${p.oldPrice.toFixed(2)}</span>`
+          : `<span class="search-price">$${p.price.toFixed(2)}</span>`;
+        return `
+              <a href="product-detail.html?id=${p.id}" class="search-card" role="option">
+                <div class="search-card-img">
+                  ${img ? `<img src="${img}" alt="${p.name}" loading="lazy">` : `<div class="search-card-placeholder">📦</div>`}
+                </div>
+                <div class="search-card-info">
+                  <p class="search-card-cat">${p.category}</p>
+                  <p class="search-card-name">${p.name}</p>
+                  <div class="search-card-price">${price}</div>
+                </div>
+              </a>`;
+      }).join('')}
+        </div>
+        ${matched.length >= 6 && q !== '' ? `<div class="search-footer"><a href="products.html" class="btn btn-outline">View all results ↗</a></div>` : ''}`;
+    }
+
+    // Wire events
+    searchBtn.addEventListener('click', openSearch);
+    if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeSearch();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeSearch();
+    });
+    if (input) {
+      input.addEventListener('input', () => renderResults(input.value));
+    }
+  }
+
   /* ---------- Initialize Everything ---------- */
   function init() {
     initPageTransitions();
@@ -1068,6 +1196,7 @@
     initScrollReveal();
     initCart();
     initWishlistFlyout();
+    initSearch();
     initProductDetail(); // Must run before individual component inits
 
     // Skip these if product detail page already initialized them
