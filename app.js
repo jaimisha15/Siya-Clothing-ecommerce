@@ -928,12 +928,6 @@
     const bcName = $('#breadcrumbName');
     if (bcName) bcName.textContent = product.name;
 
-    // Build gallery thumbnails
-    const thumbsHTML = product.images.map((img, i) => `
-      <button class="gallery-thumb${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="View image ${i + 1}">
-        <img src="${productImg(img, 150)}" alt="${i === 0 ? 'Front view' : 'Product view ' + (i + 1)}" loading="lazy">
-      </button>
-    `).join('');
 
     // Build color swatches
     const colorsHTML = product.colors.map((c, i) => `
@@ -958,7 +952,6 @@
     <div class="product-detail">
       <!-- Gallery -->
       <div class="gallery reveal">
-        <div class="gallery-thumbs">${thumbsHTML}</div>
         <div class="gallery-main" id="galleryMain" role="img" aria-label="Product image">
           <img src="${productImg(product.images[0], 800)}" alt="${product.name}" id="mainImage">
         </div>
