@@ -1,1 +1,363 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop the Siya Clothing collection — premium streetwear essentials. Filter by category, price, size, and color.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>É</text></svg>">
+  <title>Shop All — Siya Clothing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader" role="status" aria-label="Loading">
+    <div class="loader-brand">Siya Clothing</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header" role="banner">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Siya Clothing Home">Siya Clothing</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Shop</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="video-marketing.html">Video Marketing</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button aria-label="Search" id="searchBtn">🔍</button>
+        <button aria-label="Wishlist" id="wishlistNavBtn">♡ <span class="wishlist-count" aria-live="polite">0</span></button>
+        <button aria-label="Shopping cart" id="cartBtn">🛒 <span class="cart-count" id="cartCount" aria-live="polite">0</span></button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="products.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="video-marketing.html">Video Marketing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="current">Shop</span>
+      </nav>
+      <h1 class="page-title">Shop All</h1>
+    </div>
+  </div>
+
+  <!-- Shop Layout -->
+  <main class="container">
+    <div class="shop-layout">
+      <!-- Filters -->
+      <aside class="filter-sidebar" id="filterSidebar" role="complementary" aria-label="Product filters">
+        <div class="filter-group">
+          <div class="filter-label">Category</div>
+          <div class="filter-options">
+            <label class="filter-option"><input type="checkbox" data-filter="category" value="outerwear"> Outerwear <span class="count">(4)</span></label>
+            <label class="filter-option"><input type="checkbox" data-filter="category" value="tshirts"> T-Shirts & Tops <span class="count">(3)</span></label>
+            <label class="filter-option"><input type="checkbox" data-filter="category" value="bottoms"> Bottoms <span class="count">(3)</span></label>
+            <label class="filter-option"><input type="checkbox" data-filter="category" value="accessories"> Accessories <span class="count">(2)</span></label>
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Price Range</div>
+          <input type="range" min="0" max="500" value="500" id="priceRange" aria-label="Maximum price">
+          <div class="price-range-display"><span>$0</span><span id="priceValue">$500</span></div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Size</div>
+          <div class="filter-options">
+            <label class="filter-option"><input type="checkbox" data-filter="size" value="xs"> XS</label>
+            <label class="filter-option"><input type="checkbox" data-filter="size" value="s"> S</label>
+            <label class="filter-option"><input type="checkbox" data-filter="size" value="m"> M</label>
+            <label class="filter-option"><input type="checkbox" data-filter="size" value="l"> L</label>
+            <label class="filter-option"><input type="checkbox" data-filter="size" value="xl"> XL</label>
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Color</div>
+          <div class="color-swatches">
+            <button class="color-swatch" data-filter="color" data-value="black" style="background:#1a1a1a" aria-label="Black" title="Black"></button>
+            <button class="color-swatch" data-filter="color" data-value="white" style="background:#f5f5f5" aria-label="White" title="White"></button>
+            <button class="color-swatch" data-filter="color" data-value="brown" style="background:#8B6914" aria-label="Brown" title="Brown"></button>
+            <button class="color-swatch" data-filter="color" data-value="gray" style="background:#808080" aria-label="Gray" title="Gray"></button>
+            <button class="color-swatch" data-filter="color" data-value="navy" style="background:#1a2744" aria-label="Navy" title="Navy"></button>
+          </div>
+        </div>
+        <button class="btn btn-outline btn-sm" id="clearFilters" style="width:100%">Clear All Filters</button>
+      </aside>
+
+      <!-- Products Grid -->
+      <div>
+        <div class="sort-bar">
+          <button class="btn btn-outline btn-sm" id="filterToggle" style="display:none">☰ Filters</button>
+          <span class="results-count"><span id="resultsCount">12</span> Products</span>
+          <select class="sort-select" id="sortSelect" aria-label="Sort products">
+            <option value="featured">Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+
+        <!-- Skeleton Loaders -->
+        <div class="grid grid-3" id="skeletonGrid" aria-hidden="true">
+          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-text price"></div></div>
+          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-text price"></div></div>
+          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-text price"></div></div>
+          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-text price"></div></div>
+          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-text price"></div></div>
+          <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-text price"></div></div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-3 stagger-children" id="productGrid" style="display:none">
+          <!-- Products populated via data-attributes for filtering -->
+          <article class="product-card reveal" data-tilt data-category="outerwear" data-price="189" data-size="s,m,l,xl" data-color="black" data-tag="new">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80&fit=crop" alt="Noir Oversized Hoodie" loading="lazy">
+              <span class="product-badge">New</span>
+              <div class="product-overlay"><a href="product-detail.html?id=1" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">Outerwear</div>
+              <h3 class="product-card-name">Noir Oversized Hoodie</h3>
+              <div class="product-card-price">$189</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="tshirts" data-price="79" data-size="xs,s,m,l,xl" data-color="white">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80&fit=crop" alt="Essential White Tee" loading="lazy">
+              <div class="product-overlay"><a href="product-detail.html?id=2" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">T-Shirts</div>
+              <h3 class="product-card-name">Essential White Tee</h3>
+              <div class="product-card-price">$79</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="bottoms" data-price="149" data-size="s,m,l" data-color="gray" data-tag="bestseller">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&q=80&fit=crop" alt="Urban Cargo Pants" loading="lazy">
+              <span class="product-badge">Best Seller</span>
+              <div class="product-overlay"><a href="product-detail.html?id=3" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">Bottoms</div>
+              <h3 class="product-card-name">Urban Cargo Pants</h3>
+              <div class="product-card-price">$149</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="outerwear" data-price="349" data-size="m,l,xl" data-color="brown">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=80&fit=crop" alt="Heritage Leather Jacket" loading="lazy">
+              <div class="product-overlay"><a href="product-detail.html?id=4" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">Outerwear</div>
+              <h3 class="product-card-name">Heritage Leather Jacket</h3>
+              <div class="product-card-price">$349 <span class="old-price">$429</span></div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="tshirts" data-price="89" data-size="s,m,l,xl" data-color="black">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&q=80&fit=crop" alt="Graphic Print Tee" loading="lazy">
+              <div class="product-overlay"><a href="product-detail.html?id=5" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">T-Shirts</div>
+              <h3 class="product-card-name">Graphic Print Tee</h3>
+              <div class="product-card-price">$89</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="outerwear" data-price="229" data-size="s,m,l" data-color="navy" data-tag="sale">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=80&fit=crop" alt="Navy Bomber Jacket" loading="lazy">
+              <span class="product-badge">Sale</span>
+              <div class="product-overlay"><a href="product-detail.html?id=6" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">Outerwear</div>
+              <h3 class="product-card-name">Navy Bomber Jacket</h3>
+              <div class="product-card-price">$229 <span class="old-price">$299</span></div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="bottoms" data-price="119" data-size="s,m,l,xl" data-color="black">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=800&q=80&fit=crop" alt="Slim Fit Denim" loading="lazy">
+              <div class="product-overlay"><a href="product-detail.html?id=7" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">Bottoms</div>
+              <h3 class="product-card-name">Slim Fit Denim</h3>
+              <div class="product-card-price">$119</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="accessories" data-price="59" data-size="m" data-color="black">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80&fit=crop" alt="Signature Leather Belt" loading="lazy">
+              <div class="product-overlay"><a href="product-detail.html?id=8" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">Accessories</div>
+              <h3 class="product-card-name">Signature Leather Belt</h3>
+              <div class="product-card-price">$59</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="tshirts" data-price="99" data-size="xs,s,m,l" data-color="gray">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&q=80&fit=crop" alt="Washed Crew Neck" loading="lazy">
+              <div class="product-overlay"><a href="product-detail.html?id=9" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">T-Shirts</div>
+              <h3 class="product-card-name">Washed Crew Neck</h3>
+              <div class="product-card-price">$99</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="outerwear" data-price="269" data-size="m,l,xl" data-color="black">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=800&q=80&fit=crop" alt="Tailored Wool Overcoat" loading="lazy">
+              <div class="product-overlay"><a href="product-detail.html?id=10" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">Outerwear</div>
+              <h3 class="product-card-name">Tailored Wool Overcoat</h3>
+              <div class="product-card-price">$269</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="bottoms" data-price="139" data-size="s,m,l" data-color="brown">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800&q=80&fit=crop" alt="Classic Chino Trousers" loading="lazy">
+              <div class="product-overlay"><a href="product-detail.html?id=11" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">Bottoms</div>
+              <h3 class="product-card-name">Classic Chino Trousers</h3>
+              <div class="product-card-price">$139</div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-tilt data-category="accessories" data-price="129" data-size="m" data-color="brown" data-tag="new">
+            <div class="product-card-img">
+              <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80&fit=crop" alt="Leather Weekender Bag" loading="lazy">
+              <span class="product-badge">New</span>
+              <div class="product-overlay"><a href="product-detail.html?id=12" class="btn btn-primary btn-sm">Quick View</a></div>
+            </div>
+            <div class="product-card-info">
+              <div class="product-card-category">Accessories</div>
+              <h3 class="product-card-name">Leather Weekender Bag</h3>
+              <div class="product-card-price">$129</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Siya Clothing</div>
+          <p class="footer-desc">Luxury streetwear for the modern individual.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="products.html?filter=new">New Arrivals</a></li>
+            <li><a href="products.html?filter=bestseller">Best Sellers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Support</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">FAQ</a></li>
+            <li><a href="contact.html">Shipping & Returns</a></li>
+            <li><a href="contact.html">Size Guide</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Siya Clothing. All rights reserved.</p>
+        <p>Designed with ♥ for modern fashion</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Flyout -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+  <aside class="cart-flyout" id="cartFlyout" role="dialog" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-flyout-header">
+      <h2 class="cart-flyout-title">Your Cart</h2>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"><div class="cart-empty">Your cart is empty</div></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span class="amount" id="cartTotal">$0.00</span></div>
+      <button class="btn btn-primary" style="width:100%">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Wishlist Flyout -->
+  <div class="cart-overlay" id="wishlistOverlay" aria-hidden="true"></div>
+  <aside class="cart-flyout" id="wishlistFlyout" role="dialog" aria-label="Wishlist" aria-hidden="true">
+    <div class="cart-flyout-header">
+      <h2 class="cart-flyout-title">Your Wishlist</h2>
+      <button class="cart-close" id="wishlistClose" aria-label="Close wishlist">✕</button>
+    </div>
+    <div class="cart-items" id="wishlistItems"><div class="cart-empty">Your wishlist is empty</div></div>
+    <div class="cart-footer">
+      <a href="products.html" class="btn btn-primary" style="width:100%;text-align:center;text-decoration:none">Browse Products</a>
+    </div>
+  </aside>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="assertive">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toastMessage">Success!</span>
+  </div>
+
+  <script src="product-data.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
+
