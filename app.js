@@ -586,7 +586,7 @@
         colorSwatches.forEach(s => s.classList.remove('active'));
         activeColors = [];
         activeTag = ''; // Clear URL tag filter too
-        if (priceRange) { priceRange.value = 50000; if (priceValue) priceValue.textContent = '₹50,000'; }
+        if (priceRange) { priceRange.value = 2000; if (priceValue) priceValue.textContent = '₹2,000'; }
         if (sortSelect) sortSelect.value = 'featured';
         if (pageTitle) pageTitle.textContent = 'Shop All';
         // Clean the URL param without reload
