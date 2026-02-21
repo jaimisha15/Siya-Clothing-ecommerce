@@ -216,7 +216,7 @@ const PRODUCTS = [
     },
     {
         id: 8,
-        name: 'Signature Leather Belt',
+        name: 'Signature Leather Bag',
         category: 'Accessories',
         price: 499,
         oldPrice: null,
@@ -233,7 +233,7 @@ const PRODUCTS = [
             'https://images.unsplash.com/photo-1585856331426-d7b3f9fc5c16?w=800&q=80&fit=crop',
             'https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?w=800&q=80&fit=crop'
         ],
-        description: 'The finishing touch. Our Signature Leather Belt is hand-crafted from full-grain Italian leather with a brushed nickel buckle. Designed to develop character over years of wear.',
+        description: 'The finishing touch. Our Signature Leather Bag is hand-crafted from full-grain Italian leather with a brushed nickel buckle. Designed to develop character over years of wear.',
         details: [
             'Full-grain Italian leather, 3.5cm width',
             'Brushed nickel buckle with Siya Clothing monogram',
