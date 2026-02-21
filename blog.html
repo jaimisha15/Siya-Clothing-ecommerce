@@ -116,7 +116,7 @@
             <span class="blog-read-time">8 min read</span>
           </div>
           <h2 class="blog-featured-title"><a href="blog-streetwear-trends-2026.html">Top 10 Streetwear Trends Defining 2026 — The Complete Style Guide</a></h2>
-          <p class="blog-excerpt">From ultra-wide cargo silhouettes to tech-infused fabrics and muted earth tones, 2026 is rewriting the rulebook on streetwear. Here's everything you need to know to stay ahead of the curve.</p>
+          <p class="blog-excerpt" style="font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.85;color:var(--clr-text-muted);max-width:52ch">From ultra-wide cargo silhouettes to tech-infused fabrics and muted earth tones, 2026 is rewriting the rulebook on streetwear. Here's everything you need to know to stay ahead of the curve.</p>
           <div class="blog-footer">
             <div class="blog-author">
               <div class="blog-author-avatar">SC</div>
@@ -177,7 +177,7 @@
         <!-- Post 4 -->
         <article class="blog-card reveal" data-cat="guides">
           <a href="blog-perfect-hoodie-guide.html" class="blog-card-img-wrap">
-            <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=80&fit=crop" alt="How to choose the perfect hoodie for your body type — fit guide for men" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80&fit=crop" alt="How to choose the perfect hoodie for your body type — fit guide for men" loading="lazy">
           </a>
           <div class="blog-card-body">
             <div class="blog-meta">
@@ -292,14 +292,14 @@
             <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=120&q=70&fit=crop" alt="Noir Oversized Hoodie" loading="lazy">
             <div>
               <p class="sidebar-product-name">Noir Oversized Hoodie</p>
-              <p class="sidebar-product-price">$189.00</p>
+              <p class="sidebar-product-price">&#8377;1,799</p>
             </div>
           </a>
           <a href="product-detail.html?id=2" class="sidebar-product">
             <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=120&q=70&fit=crop" alt="Taupe Structured Tee" loading="lazy">
             <div>
               <p class="sidebar-product-name">Taupe Structured Tee</p>
-              <p class="sidebar-product-price">$89.00</p>
+              <p class="sidebar-product-price">&#8377;699</p>
             </div>
           </a>
         </div>
@@ -422,7 +422,7 @@
       sidebarTags.forEach(tag => tag.addEventListener('click', (e) => {
         e.preventDefault();
         filterCat(tag.dataset.cat);
-        document.querySelector('.blog-hero').scrollIntoView({ behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }));
 
       // Blog search
