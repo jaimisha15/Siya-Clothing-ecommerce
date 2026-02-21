@@ -1,5 +1,5 @@
-/* ============================================================
-   ÉLEV — Product Data Catalog
+﻿/* ============================================================
+   Siya Clothing — Product Data Catalog
    ============================================================
    All product information in one place.
    Used by products.html, index.html, and product-detail.html.
@@ -32,7 +32,7 @@ const PRODUCTS = [
             'Relaxed oversized fit with dropped shoulders',
             'Kangaroo pocket with hidden zip compartment',
             'Ribbed cuffs and hem for a clean finish',
-            'Tonal embroidered ÉLEV logo on chest'
+            'Tonal embroidered Siya Clothing logo on chest'
         ],
         fit: 'Oversized fit — we recommend choosing your regular size for the intended relaxed look, or sizing down for a more standard fit. Model is 6\'1" / 185cm wearing size L.'
     },
@@ -62,7 +62,7 @@ const PRODUCTS = [
             'Relaxed fit with slightly dropped shoulders',
             'Reinforced collar — no stretching or sagging',
             'Pre-shrunk and garment-dyed',
-            'Subtle ÉLEV woven label at hem'
+            'Subtle Siya Clothing woven label at hem'
         ],
         fit: 'Regular to relaxed fit. True to size. Model is 6\'0" / 183cm wearing size M.'
     },
@@ -236,10 +236,10 @@ const PRODUCTS = [
         description: 'The finishing touch. Our Signature Leather Belt is hand-crafted from full-grain Italian leather with a brushed nickel buckle. Designed to develop character over years of wear.',
         details: [
             'Full-grain Italian leather, 3.5cm width',
-            'Brushed nickel buckle with ÉLEV monogram',
+            'Brushed nickel buckle with Siya Clothing monogram',
             'Five-hole adjustment, fits waist 28-38"',
             'Hand-painted and burnished edges',
-            'Comes in ÉLEV dust bag'
+            'Comes in Siya Clothing dust bag'
         ],
         fit: 'One size — adjustable from 28" to 38" waist. Measure your waist at the point where you normally wear your belt.'
     },
@@ -269,7 +269,7 @@ const PRODUCTS = [
             'Garment-dyed and enzyme-washed',
             'Relaxed fit with set-in sleeves',
             'Double-needle stitching throughout',
-            'Tonal ÉLEV embroidery on back neck'
+            'Tonal Siya Clothing embroidery on back neck'
         ],
         fit: 'Relaxed fit — slightly wider and longer. True to size for a relaxed look. Model is 5\'11" / 180cm wearing size M.'
     },

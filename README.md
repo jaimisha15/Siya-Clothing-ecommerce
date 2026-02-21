@@ -1,4 +1,4 @@
-# ÉLEV — Luxury Streetwear E-Commerce
+﻿# Siya Clothing — Luxury Streetwear E-Commerce
 
 A premium, fully responsive e-commerce website built with pure **HTML, CSS, and vanilla JavaScript**. No frameworks, no dependencies.
 
@@ -35,4 +35,4 @@ A premium, fully responsive e-commerce website built with pure **HTML, CSS, and 
 Just open `index.html` in your browser — no build step needed.
 
 ---
-© 2026 ÉLEV. College project.
+© 2026 Siya Clothing. College project.

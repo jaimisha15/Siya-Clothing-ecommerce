@@ -1,5 +1,5 @@
-/* ============================================================
-   ÉLEV — Core Application JavaScript
+﻿/* ============================================================
+   Siya Clothing — Core Application JavaScript
    ============================================================
    Features:
    - Page loader with timeout
@@ -917,14 +917,14 @@
           </p>
           <a href="products.html" class="btn btn-primary" style="margin-top:2rem;display:inline-block">Browse All Products</a>
         </div>`;
-      document.title = 'Product Not Found — ÉLEV';
+      document.title = 'Product Not Found — Siya Clothing';
       const bcName = $('#breadcrumbName');
       if (bcName) bcName.textContent = 'Not Found';
       return;
     }
 
     // Update page title and breadcrumb
-    document.title = `${product.name} — ÉLEV`;
+    document.title = `${product.name} — Siya Clothing`;
     const bcName = $('#breadcrumbName');
     if (bcName) bcName.textContent = product.name;
 
