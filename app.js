@@ -180,7 +180,7 @@
 
       // Update cart total
       const totalEl = $('#cartTotal');
-      if (totalEl) totalEl.textContent = `$${this.getTotal().toFixed(2)}`;
+      if (totalEl) totalEl.textContent = `₹${this.getTotal().toFixed(0)}`;
 
       // Update cart items display
       const container = $('#cartItems');
@@ -198,7 +198,7 @@
           <div>
             <div class="cart-item-name">${item.name}</div>
             <div style="font-size:.75rem;color:var(--clr-text-muted)">${item.size || ''} ${item.color ? '/ ' + item.color : ''} × ${item.qty}</div>
-            <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+            <div class="cart-item-price">₹${(item.price * item.qty).toFixed(0)}</div>
             <button class="cart-item-remove" data-remove="${i}" aria-label="Remove ${item.name}">Remove</button>
           </div>
         </div>
@@ -274,7 +274,7 @@
           <div class="cart-item-img"><img src="${item.img}" alt="${item.name}" loading="lazy"></div>
           <div>
             <div class="cart-item-name">${item.name}</div>
-            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+            <div class="cart-item-price">₹${item.price.toFixed(0)}</div>
             <div style="display:flex;gap:.5rem;margin-top:.25rem">
               <a href="product-detail.html?id=${item.id}" class="cart-item-remove" style="color:var(--clr-accent)">View</a>
               <button class="cart-item-remove" data-wishlist-remove="${i}" aria-label="Remove ${item.name}">Remove</button>
@@ -572,7 +572,7 @@
 
     if (priceRange) {
       priceRange.addEventListener('input', () => {
-        if (priceValue) priceValue.textContent = `$${priceRange.value}`;
+        if (priceValue) priceValue.textContent = `₹${priceRange.value}`;
         applyFilters();
       });
     }
@@ -586,7 +586,7 @@
         colorSwatches.forEach(s => s.classList.remove('active'));
         activeColors = [];
         activeTag = ''; // Clear URL tag filter too
-        if (priceRange) { priceRange.value = 500; if (priceValue) priceValue.textContent = '$500'; }
+        if (priceRange) { priceRange.value = 50000; if (priceValue) priceValue.textContent = '₹50,000'; }
         if (sortSelect) sortSelect.value = 'featured';
         if (pageTitle) pageTitle.textContent = 'Shop All';
         // Clean the URL param without reload
@@ -947,8 +947,8 @@
 
     // Build price display
     const priceHTML = product.oldPrice
-      ? `$${product.price.toFixed(2)} <span class="old-price">$${product.oldPrice.toFixed(2)}</span>`
-      : `$${product.price.toFixed(2)}`;
+      ? `₹${product.price.toLocaleString('en-IN')} <span class="old-price">₹${product.oldPrice.toLocaleString('en-IN')}</span>`
+      : `₹${product.price.toLocaleString('en-IN')}`;
 
     // Build details list
     const detailsHTML = product.details.map(d => `<li>${d}</li>`).join('');
@@ -993,7 +993,7 @@
           <button class="btn btn-primary btn-add-cart" id="addToCartBtn"
                   data-name="${product.name}" data-price="${product.price}"
                   data-img="${productImg(product.images[0], 150)}">
-            Add to Cart — $${product.price}
+            Add to Cart — ₹${product.price.toLocaleString('en-IN')}
           </button>
         </div>
 
@@ -1154,8 +1154,8 @@
           ${matched.map(p => {
         const img = (p.images && p.images[0]) ? `${p.images[0]}&w=200&q=70&fit=crop` : '';
         const price = p.oldPrice
-          ? `<span class="search-price">$${p.price.toFixed(2)}</span><span class="search-old-price">$${p.oldPrice.toFixed(2)}</span>`
-          : `<span class="search-price">$${p.price.toFixed(2)}</span>`;
+          ? `<span class="search-price">₹${p.price.toFixed(0)}</span><span class="search-old-price">₹${p.oldPrice.toFixed(0)}</span>`
+          : `<span class="search-price">₹${p.price.toFixed(0)}</span>`;
         return `
               <a href="product-detail.html?id=${p.id}" class="search-card" role="option">
                 <div class="search-card-img">
