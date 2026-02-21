@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion & Style Journal — Siya Clothing Blog</title>
+  <meta name="description" content="Explore Siya Clothing's fashion blog — expert style tips, streetwear trends, sustainable fashion guides, outfit ideas, and wardrobe inspiration for men and women.">
+  <meta name="keywords" content="fashion blog, streetwear trends 2026, style tips, sustainable fashion, outfit ideas, Siya Clothing">
+  <meta name="author" content="Siya Clothing">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fashion & Style Journal — Siya Clothing Blog">
+  <meta property="og:description" content="Expert style tips, streetwear trends, and sustainable fashion guides from Siya Clothing.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80">
+  <meta property="og:url" content="https://jaimisha15.github.io/elev-ecommerce/blog.html">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>S</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Blog Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Fashion & Style Journal",
+    "description": "Expert style tips, streetwear trends, and sustainable fashion guides from Siya Clothing.",
+    "url": "https://jaimisha15.github.io/elev-ecommerce/blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Siya Clothing",
+      "url": "https://jaimisha15.github.io/elev-ecommerce/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader" role="status" aria-label="Loading">
+    <div class="loader-brand">Siya Clothing</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header" role="banner">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Siya Clothing Home">Siya Clothing</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="video-marketing.html">Video Marketing</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button aria-label="Search" id="searchBtn">🔍</button>
+        <button aria-label="Wishlist" id="wishlistNavBtn">♡ <span class="wishlist-count" aria-live="polite">0</span></button>
+        <button aria-label="Shopping cart" id="cartBtn">🛒 <span class="cart-count" id="cartCount" aria-live="polite">0</span></button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="products.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="video-marketing.html">Video Marketing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Blog Hero -->
+  <section class="blog-hero" aria-labelledby="blogHeroTitle">
+    <div class="blog-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=80&fit=crop')"></div>
+    <div class="blog-hero-overlay"></div>
+    <div class="blog-hero-content">
+      <p class="hero-overline">Style. Culture. Expression.</p>
+      <h1 class="hero-title" id="blogHeroTitle">Fashion &amp; Style <span>Journal</span></h1>
+      <p class="hero-desc">Your definitive guide to modern streetwear, sustainable choices, and timeless style — curated by the Siya Clothing team.</p>
+      <!-- Category Filter Pills -->
+      <div class="blog-filter-pills" role="group" aria-label="Filter by category">
+        <button class="blog-pill active" data-cat="all">All Posts</button>
+        <button class="blog-pill" data-cat="trends">Trends</button>
+        <button class="blog-pill" data-cat="style-tips">Style Tips</button>
+        <button class="blog-pill" data-cat="sustainability">Sustainability</button>
+        <button class="blog-pill" data-cat="guides">Guides</button>
+        <button class="blog-pill" data-cat="outfits">Outfits</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Blog Layout -->
+  <main class="blog-layout container section">
+
+    <!-- Blog Grid -->
+    <div class="blog-main">
+
+      <!-- Featured Post -->
+      <article class="blog-featured reveal" data-cat="trends">
+        <a href="blog-streetwear-trends-2026.html" class="blog-featured-img-wrap">
+          <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=900&q=80&fit=crop" alt="Top streetwear trends in 2026 — oversized silhouettes and urban fashion" loading="lazy">
+          <span class="blog-badge">Featured</span>
+        </a>
+        <div class="blog-featured-body">
+          <div class="blog-meta">
+            <span class="blog-cat-tag blog-cat-trends">Trends</span>
+            <span class="blog-date">Feb 18, 2026</span>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+          <h2 class="blog-featured-title"><a href="blog-streetwear-trends-2026.html">Top 10 Streetwear Trends Defining 2026 — The Complete Style Guide</a></h2>
+          <p class="blog-excerpt">From ultra-wide cargo silhouettes to tech-infused fabrics and muted earth tones, 2026 is rewriting the rulebook on streetwear. Here's everything you need to know to stay ahead of the curve.</p>
+          <div class="blog-footer">
+            <div class="blog-author">
+              <div class="blog-author-avatar">SC</div>
+              <span>Siya Clothing Editorial</span>
+            </div>
+            <a href="blog-streetwear-trends-2026.html" class="btn btn-primary blog-read-btn">Read Article →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Blog Grid -->
+      <div class="blog-grid" id="blogGrid">
+
+        <!-- Post 2 -->
+        <article class="blog-card reveal" data-cat="style-tips">
+          <a href="blog-style-oversized-tshirt.html" class="blog-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80&fit=crop" alt="How to style oversized T-shirts for every occasion — casual, smart casual, layered looks" loading="lazy">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat-tag blog-cat-style-tips">Style Tips</span>
+              <span class="blog-date">Feb 14, 2026</span>
+            </div>
+            <h2 class="blog-card-title"><a href="blog-style-oversized-tshirt.html">How to Style Oversized T-Shirts for Every Occasion</a></h2>
+            <p class="blog-excerpt">The oversized tee is the most versatile piece in modern menswear. Master 7 different looks — from weekend casual to smart street.</p>
+            <div class="blog-footer">
+              <div class="blog-author">
+                <div class="blog-author-avatar">SC</div>
+                <span>Style Team</span>
+              </div>
+              <span class="blog-read-time">5 min</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="blog-card reveal" data-cat="sustainability">
+          <a href="blog-sustainable-fashion-guide.html" class="blog-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?w=600&q=80&fit=crop" alt="Ultimate guide to sustainable fashion — eco fabrics, ethical brands, and conscious shopping" loading="lazy">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat-tag blog-cat-sustainability">Sustainability</span>
+              <span class="blog-date">Feb 10, 2026</span>
+            </div>
+            <h2 class="blog-card-title"><a href="blog-sustainable-fashion-guide.html">The Ultimate Guide to Sustainable Fashion in 2026</a></h2>
+            <p class="blog-excerpt">Fast fashion's true cost is staggering. Discover how to build a wardrobe that looks incredible, lasts decades, and respects the planet.</p>
+            <div class="blog-footer">
+              <div class="blog-author">
+                <div class="blog-author-avatar">SC</div>
+                <span>Sustainability Desk</span>
+              </div>
+              <span class="blog-read-time">7 min</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="blog-card reveal" data-cat="guides">
+          <a href="blog-perfect-hoodie-guide.html" class="blog-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=600&q=80&fit=crop" alt="How to choose the perfect hoodie for your body type — fit guide for men" loading="lazy">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat-tag blog-cat-guides">Guides</span>
+              <span class="blog-date">Feb 5, 2026</span>
+            </div>
+            <h2 class="blog-card-title"><a href="blog-perfect-hoodie-guide.html">How to Choose the Perfect Hoodie for Your Body Type</a></h2>
+            <p class="blog-excerpt">Not all hoodies are created equal. We break down every silhouette, fabric weight, and fit so you always buy right the first time.</p>
+            <div class="blog-footer">
+              <div class="blog-author">
+                <div class="blog-author-avatar">SC</div>
+                <span>Fashion Editors</span>
+              </div>
+              <span class="blog-read-time">6 min</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 5 -->
+        <article class="blog-card reveal" data-cat="outfits">
+          <a href="blog-summer-outfit-ideas.html" class="blog-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80&fit=crop" alt="Summer outfit ideas for men and women 2026 — light layers, linen, and breathable streetwear" loading="lazy">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-cat-tag blog-cat-outfits">Outfits</span>
+              <span class="blog-date">Jan 28, 2026</span>
+            </div>
+            <h2 class="blog-card-title"><a href="blog-summer-outfit-ideas.html">20 Summer Outfit Ideas for Men &amp; Women in 2026</a></h2>
+            <p class="blog-excerpt">Beat the heat without sacrificing style. From airy linen fits to bold printed sets, these are the summer looks defining the season.</p>
+            <div class="blog-footer">
+              <div class="blog-author">
+                <div class="blog-author-avatar">SC</div>
+                <span>Creative Team</span>
+              </div>
+              <span class="blog-read-time">4 min</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /blog-grid -->
+
+      <!-- No Results -->
+      <div class="blog-no-results" id="blogNoResults" style="display:none">
+        <div style="font-size:3rem;margin-bottom:1rem">🔎</div>
+        <p>No posts in this category yet. <a href="blog.html">View all posts →</a></p>
+      </div>
+
+    </div><!-- /blog-main -->
+
+    <!-- Sidebar -->
+    <aside class="blog-sidebar" aria-label="Blog sidebar">
+
+      <!-- Search -->
+      <div class="sidebar-widget reveal">
+        <h3 class="sidebar-title">Search</h3>
+        <div class="sidebar-search">
+          <input type="search" id="blogSearch" placeholder="Search articles..." aria-label="Search blog posts">
+          <button aria-label="Search">🔍</button>
+        </div>
+      </div>
+
+      <!-- Popular Tags -->
+      <div class="sidebar-widget reveal">
+        <h3 class="sidebar-title">Popular Tags</h3>
+        <div class="sidebar-tags">
+          <a href="#" class="sidebar-tag" data-cat="trends">Streetwear</a>
+          <a href="#" class="sidebar-tag" data-cat="style-tips">Style Tips</a>
+          <a href="#" class="sidebar-tag" data-cat="sustainability">Eco Fashion</a>
+          <a href="#" class="sidebar-tag" data-cat="guides">Fit Guide</a>
+          <a href="#" class="sidebar-tag" data-cat="outfits">Outfits</a>
+          <a href="#" class="sidebar-tag">Hoodies</a>
+          <a href="#" class="sidebar-tag">Minimalism</a>
+          <a href="#" class="sidebar-tag">Luxury</a>
+          <a href="#" class="sidebar-tag">2026 Trends</a>
+        </div>
+      </div>
+
+      <!-- Recent Posts -->
+      <div class="sidebar-widget reveal">
+        <h3 class="sidebar-title">Recent Posts</h3>
+        <div class="sidebar-recent">
+          <a href="blog-streetwear-trends-2026.html" class="sidebar-post">
+            <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=100&q=70&fit=crop" alt="Streetwear trends 2026" loading="lazy">
+            <div>
+              <p class="sidebar-post-title">Top 10 Streetwear Trends 2026</p>
+              <p class="sidebar-post-date">Feb 18, 2026</p>
+            </div>
+          </a>
+          <a href="blog-style-oversized-tshirt.html" class="sidebar-post">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&q=70&fit=crop" alt="Styling oversized T-shirts" loading="lazy">
+            <div>
+              <p class="sidebar-post-title">Style Oversized T-Shirts</p>
+              <p class="sidebar-post-date">Feb 14, 2026</p>
+            </div>
+          </a>
+          <a href="blog-sustainable-fashion-guide.html" class="sidebar-post">
+            <img src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?w=100&q=70&fit=crop" alt="Sustainable fashion guide" loading="lazy">
+            <div>
+              <p class="sidebar-post-title">Sustainable Fashion Guide</p>
+              <p class="sidebar-post-date">Feb 10, 2026</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Featured Products -->
+      <div class="sidebar-widget reveal">
+        <h3 class="sidebar-title">Shop the Look</h3>
+        <div class="sidebar-products">
+          <a href="product-detail.html?id=1" class="sidebar-product">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=120&q=70&fit=crop" alt="Noir Oversized Hoodie" loading="lazy">
+            <div>
+              <p class="sidebar-product-name">Noir Oversized Hoodie</p>
+              <p class="sidebar-product-price">$189.00</p>
+            </div>
+          </a>
+          <a href="product-detail.html?id=2" class="sidebar-product">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=120&q=70&fit=crop" alt="Taupe Structured Tee" loading="lazy">
+            <div>
+              <p class="sidebar-product-name">Taupe Structured Tee</p>
+              <p class="sidebar-product-price">$89.00</p>
+            </div>
+          </a>
+        </div>
+        <a href="products.html" class="btn btn-outline" style="width:100%;text-align:center;margin-top:var(--sp-md)">View All Products</a>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="sidebar-widget sidebar-newsletter reveal">
+        <h3 class="sidebar-title">Style Delivered</h3>
+        <p>Get the latest trends, styling tips, and exclusive offers in your inbox weekly.</p>
+        <form class="sidebar-form" id="sidebarNewsletterForm">
+          <input type="email" placeholder="Your email address" aria-label="Email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- CTA Banner -->
+  <section class="blog-cta-banner section" aria-label="Shop our collection">
+    <div class="container">
+      <div class="blog-cta-inner reveal">
+        <div class="blog-cta-text">
+          <p class="hero-overline">Ready to Elevate Your Wardrobe?</p>
+          <h2>Shop the Pieces<br><span class="text-accent">Behind Every Story</span></h2>
+          <p>Every article we write is inspired by the clothing we make. Explore our full collection — crafted for those who care about style and substance.</p>
+        </div>
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary">Shop Collection</a>
+          <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Siya Clothing</div>
+          <p class="footer-desc">Luxury streetwear for the modern individual. Every piece is designed with intent, crafted with passion.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="products.html?filter=new">New Arrivals</a></li>
+            <li><a href="products.html?filter=bestseller">Best Sellers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Journal</h4>
+          <ul class="footer-links">
+            <li><a href="blog-streetwear-trends-2026.html">Streetwear Trends</a></li>
+            <li><a href="blog-sustainable-fashion-guide.html">Sustainability Guide</a></li>
+            <li><a href="blog-perfect-hoodie-guide.html">Hoodie Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Siya Clothing. All rights reserved.</p>
+        <p>Designed with ♥ for modern fashion</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart & Wishlist Flyouts -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+  <aside class="cart-flyout" id="cartFlyout" role="dialog" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-flyout-header"><h2 class="cart-flyout-title">Your Cart</h2><button class="cart-close" id="cartClose" aria-label="Close cart">✕</button></div>
+    <div class="cart-items" id="cartItems"><div class="cart-empty">Your cart is empty</div></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total</span><span class="amount" id="cartTotal">$0.00</span></div><button class="btn btn-primary" style="width:100%">Checkout</button></div>
+  </aside>
+  <div class="cart-overlay" id="wishlistOverlay" aria-hidden="true"></div>
+  <aside class="cart-flyout" id="wishlistFlyout" role="dialog" aria-label="Wishlist" aria-hidden="true">
+    <div class="cart-flyout-header"><h2 class="cart-flyout-title">Your Wishlist</h2><button class="cart-close" id="wishlistClose" aria-label="Close wishlist">✕</button></div>
+    <div class="cart-items" id="wishlistItems"><div class="cart-empty">Your wishlist is empty</div></div>
+    <div class="cart-footer"><a href="products.html" class="btn btn-primary" style="width:100%;text-align:center;text-decoration:none">Browse Products</a></div>
+  </aside>
+  <div class="toast" id="toast" role="alert" aria-live="assertive"><span class="toast-icon">✓</span><span class="toast-message" id="toastMessage">Success!</span></div>
+
+  <script src="product-data.js"></script>
+  <script src="app.js" defer></script>
+  <script>
+    // Blog category filter
+    document.addEventListener('DOMContentLoaded', () => {
+      const pills = document.querySelectorAll('.blog-pill');
+      const cards = document.querySelectorAll('.blog-card, .blog-featured');
+      const noResults = document.getElementById('blogNoResults');
+      const sidebarTags = document.querySelectorAll('.sidebar-tag[data-cat]');
+
+      function filterCat(cat) {
+        pills.forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
+        let visible = 0;
+        cards.forEach(card => {
+          const show = cat === 'all' || card.dataset.cat === cat;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+      }
+
+      pills.forEach(pill => pill.addEventListener('click', () => filterCat(pill.dataset.cat)));
+      sidebarTags.forEach(tag => tag.addEventListener('click', (e) => {
+        e.preventDefault();
+        filterCat(tag.dataset.cat);
+        document.querySelector('.blog-hero').scrollIntoView({ behavior: 'smooth' });
+      }));
+
+      // Blog search
+      const blogSearch = document.getElementById('blogSearch');
+      if (blogSearch) {
+        blogSearch.addEventListener('input', () => {
+          const q = blogSearch.value.trim().toLowerCase();
+          cards.forEach(card => {
+            const title = card.querySelector('.blog-card-title, .blog-featured-title')?.textContent.toLowerCase() || '';
+            const excerpt = card.querySelector('.blog-excerpt')?.textContent.toLowerCase() || '';
+            card.style.display = (title.includes(q) || excerpt.includes(q)) ? '' : 'none';
+          });
+        });
+      }
+
+      // Sidebar newsletter
+      const sidebarForm = document.getElementById('sidebarNewsletterForm');
+      if (sidebarForm) {
+        sidebarForm.addEventListener('submit', e => {
+          e.preventDefault();
+          const t = document.getElementById('toast');
+          const m = document.getElementById('toastMessage');
+          if (t && m) { m.textContent = 'Subscribed! Check your inbox 🎉'; t.classList.add('show','success'); setTimeout(() => t.classList.remove('show','success'), 3500); }
+          sidebarForm.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
