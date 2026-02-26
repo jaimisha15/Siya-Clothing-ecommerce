@@ -86,7 +86,7 @@
     <div class="blog-hero-content">
       <p class="hero-overline">Style. Culture. Expression.</p>
       <h1 class="hero-title" id="blogHeroTitle">Fashion &amp; Style <span>Journal</span></h1>
-      <p class="hero-desc">Your definitive guide to modern streetwear, sustainable choices, and timeless style â€” curated by the Siya Clothing team.</p>
+      <p class="hero-desc">Your definitive guide to modern streetwear, sustainable choices, and timeless style &mdash; curated by the Siya Clothing team.</p>
       <!-- Category Filter Pills -->
       <div class="blog-filter-pills" role="group" aria-label="Filter by category">
         <button class="blog-pill active" data-cat="all">All Posts</button>
@@ -372,15 +372,15 @@
           <h4 class="footer-heading">Company</h4>
           <ul class="footer-links">
             <li><a href="about.html">About Us</a></li>
-            <li><a href="blog.html">Blog</a>
-        <a href="affiliate-program.html">Affiliate</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="affiliate-program.html">Affiliate</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>Â© 2026 Siya Clothing. All rights reserved.</p>
-        <p>Designed with â™¥ for modern fashion</p>
+        <p>&copy; 2026 Siya Clothing. All rights reserved.</p>
+        <p>Designed with &#9829; for modern fashion</p>
       </div>
     </div>
   </footer>
@@ -388,17 +388,17 @@
   <!-- Cart & Wishlist Flyouts -->
   <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
   <aside class="cart-flyout" id="cartFlyout" role="dialog" aria-label="Shopping cart" aria-hidden="true">
-    <div class="cart-flyout-header"><h2 class="cart-flyout-title">Your Cart</h2><button class="cart-close" id="cartClose" aria-label="Close cart">âœ•</button></div>
+    <div class="cart-flyout-header"><h2 class="cart-flyout-title">Your Cart</h2><button class="cart-close" id="cartClose" aria-label="Close cart">&#10005;</button></div>
     <div class="cart-items" id="cartItems"><div class="cart-empty">Your cart is empty</div></div>
     <div class="cart-footer"><div class="cart-total"><span>Total</span><span class="amount" id="cartTotal">&#8377;0</span></div><button class="btn btn-primary" style="width:100%">Checkout</button></div>
   </aside>
   <div class="cart-overlay" id="wishlistOverlay" aria-hidden="true"></div>
   <aside class="cart-flyout" id="wishlistFlyout" role="dialog" aria-label="Wishlist" aria-hidden="true">
-    <div class="cart-flyout-header"><h2 class="cart-flyout-title">Your Wishlist</h2><button class="cart-close" id="wishlistClose" aria-label="Close wishlist">âœ•</button></div>
+    <div class="cart-flyout-header"><h2 class="cart-flyout-title">Your Wishlist</h2><button class="cart-close" id="wishlistClose" aria-label="Close wishlist">&#10005;</button></div>
     <div class="cart-items" id="wishlistItems"><div class="cart-empty">Your wishlist is empty</div></div>
     <div class="cart-footer"><a href="products.html" class="btn btn-primary" style="width:100%;text-align:center;text-decoration:none">Browse Products</a></div>
   </aside>
-  <div class="toast" id="toast" role="alert" aria-live="assertive"><span class="toast-icon">âœ“</span><span class="toast-message" id="toastMessage">Success!</span></div>
+  <div class="toast" id="toast" role="alert" aria-live="assertive"><span class="toast-icon">&#10003;</span><span class="toast-message" id="toastMessage">Success!</span></div>
 
   <script src="product-data.js"></script>
   <script src="app.js" defer></script>
@@ -448,7 +448,7 @@
           e.preventDefault();
           const t = document.getElementById('toast');
           const m = document.getElementById('toastMessage');
-          if (t && m) { m.textContent = 'Subscribed! Check your inbox ðŸŽ‰'; t.classList.add('show','success'); setTimeout(() => t.classList.remove('show','success'), 3500); }
+          if (t && m) { m.textContent = 'Subscribed! Check your inbox \uD83C\uDF89'; t.classList.add('show','success'); setTimeout(() => t.classList.remove('show','success'), 3500); }
           sidebarForm.reset();
         });
       }
