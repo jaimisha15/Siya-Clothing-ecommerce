@@ -3154,14 +3154,25 @@ input[type="range"] {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(201, 169, 110, .15);
-    border: 2px solid rgba(201, 169, 110, .3);
+    background: linear-gradient(135deg, rgba(201, 169, 110, .25), rgba(139, 111, 58, .35));
+    border: 2px solid rgba(201, 169, 110, .45);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: var(--fs-xs);
     font-weight: 700;
-    color: var(--clr-accent)
+    color: var(--clr-accent);
+    box-shadow: 0 2px 12px rgba(201, 169, 110, .2);
+    transition: transform var(--dur-fast), box-shadow var(--dur-fast)
+}
+
+.blog-author-avatar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 18px rgba(201, 169, 110, .35)
+}
+
+.blog-author-avatar svg {
+    display: block
 }
 
 /* --- Blog Grid --- */
