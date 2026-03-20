@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    Siya Clothing — Luxury Streetwear Design System
    ============================================================ */
 
@@ -4739,3 +4739,105 @@ input[type="range"] {
         max-height: 220px
     }
 }
+
+/* ============================================================
+   SWOT ANALYSIS PAGE
+   ============================================================ */
+.swot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--sp-xl);
+    margin: var(--sp-2xl) 0;
+}
+
+.swot-card {
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-xl);
+    transition: transform var(--dur-normal) var(--ease-out), border-color var(--dur-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.swot-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--clr-accent);
+}
+
+.swot-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--clr-accent);
+    opacity: 0.5;
+}
+
+.swot-card.strength::before { background: #10b981; } /* Green */
+.swot-card.weakness::before { background: #f59e0b; } /* Amber */
+.swot-card.opportunity::before { background: #3b82f6; } /* Blue */
+.swot-card.threat::before { background: #ef4444; } /* Red */
+
+.swot-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--sp-md);
+    display: block;
+}
+
+.swot-card-title {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-lg);
+    margin-bottom: var(--sp-md);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.swot-list {
+    list-style: none;
+    padding: 0;
+}
+
+.swot-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: var(--sp-sm);
+    color: var(--clr-text-muted);
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+}
+
+.swot-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--clr-accent);
+}
+
+.swot-summary {
+    background: var(--clr-surface-2);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-xl);
+    margin-top: var(--sp-2xl);
+    border: 1px dashed var(--clr-border);
+}
+
+.swot-summary-title {
+    font-size: var(--fs-md);
+    margin-bottom: var(--sp-sm);
+    color: var(--clr-text);
+}
+
+.swot-summary-text {
+    color: var(--clr-text-muted);
+    font-size: var(--fs-sm);
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .swot-grid {
+        grid-template-columns: 1fr;
+    }
+}
