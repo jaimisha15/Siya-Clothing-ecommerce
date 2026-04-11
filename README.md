@@ -44,3 +44,5 @@ Since this is a front-end project built with vanilla web technologies, no compil
 ## 📄 Footer Notes
 
 &copy; 2026 Siya Clothing. All rights reserved. Designed with ♥ for modern fashion.
+
+
