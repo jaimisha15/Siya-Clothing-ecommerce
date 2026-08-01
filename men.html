@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop Men's clothing at Siya Clothing — T-Shirts, Shirts, Hoodies, Jeans, Jackets, Co-Ord Sets and more.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>É</text></svg>">
+  <title>Men &mdash; Siya Clothing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-loader" id="pageLoader" role="status" aria-label="Loading">
+    <div class="loader-brand">Siya Clothing</div><div class="loader-bar"></div>
+  </div>
+
+  <header class="header" id="header" role="banner">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Siya Clothing Home">Siya Clothing</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="men.html" class="active">Men</a>
+        <a href="women.html">Women</a>
+        <a href="kids.html">Kids</a>
+        <a href="footwear.html">Footwear</a>
+        <a href="products.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button aria-label="Search" id="searchBtn">🔍</button>
+        <button aria-label="Wishlist" id="wishlistNavBtn">♡ <span class="wishlist-count" aria-live="polite">0</span></button>
+        <button aria-label="Shopping cart" id="cartBtn">🛒 <span class="cart-count" id="cartCount" aria-live="polite">0</span></button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="men.html">Men</a>
+    <a href="women.html">Women</a>
+    <a href="kids.html">Kids</a>
+    <a href="footwear.html">Footwear</a>
+    <a href="products.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Category Hero -->
+  <section class="category-hero" style="background:linear-gradient(135deg,#0a0a0a 60%,#1a1a1a);padding:calc(var(--sp-2xl) + var(--header-h)) 0 var(--sp-2xl)">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2xl);align-items:center">
+      <div class="reveal">
+        <p style="color:var(--clr-accent);font-size:var(--fs-sm);letter-spacing:.15em;text-transform:uppercase;margin-bottom:var(--sp-sm)">New Season</p>
+        <h1 style="font-family:var(--ff-heading);font-size:clamp(2.5rem,5vw,4rem);line-height:1.1;margin-bottom:var(--sp-md)">Men's <span class="text-accent">Collection</span></h1>
+        <p style="color:var(--clr-text-muted);font-size:var(--fs-md);max-width:480px;margin-bottom:var(--sp-lg)">From premium basics to statement outerwear — discover the full men's range crafted for the modern individual.</p>
+        <a href="products.html?gender=men" class="btn btn-primary">Shop All Men's</a>
+      </div>
+      <div class="reveal reveal-delay-2" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-sm)">
+        <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80&fit=crop" alt="Men's Shirts" style="width:100%;height:220px;object-fit:cover;border-radius:var(--radius-md)" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80&fit=crop" alt="Men's Hoodies" style="width:100%;height:220px;object-fit:cover;border-radius:var(--radius-md);margin-top:var(--sp-lg)" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub-Categories -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Shop by <span class="text-accent">Category</span></h2>
+        <p class="section-subtitle">Find exactly what you're looking for</p>
+      </div>
+      <div class="subcategory-grid reveal">
+        <a href="products.html?gender=men&category=t-shirts" class="subcategory-card">
+          <div class="subcategory-img"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80&fit=crop" alt="T-Shirts" loading="lazy"></div>
+          <div class="subcategory-label">T-Shirts</div>
+        </a>
+        <a href="products.html?gender=men&category=shirts" class="subcategory-card">
+          <div class="subcategory-img"><img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&q=80&fit=crop" alt="Shirts" loading="lazy"></div>
+          <div class="subcategory-label">Shirts</div>
+        </a>
+        <a href="products.html?gender=men&category=hoodies" class="subcategory-card">
+          <div class="subcategory-img"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&q=80&fit=crop" alt="Hoodies" loading="lazy"></div>
+          <div class="subcategory-label">Hoodies</div>
+        </a>
+        <a href="products.html?gender=men&category=jackets" class="subcategory-card">
+          <div class="subcategory-img"><img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80&fit=crop" alt="Jackets" loading="lazy"></div>
+          <div class="subcategory-label">Jackets</div>
+        </a>
+        <a href="products.html?gender=men&category=jeans" class="subcategory-card">
+          <div class="subcategory-img"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80&fit=crop" alt="Jeans" loading="lazy"></div>
+          <div class="subcategory-label">Jeans</div>
+        </a>
+        <a href="products.html?gender=men&category=trousers" class="subcategory-card">
+          <div class="subcategory-img"><img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&q=80&fit=crop" alt="Trousers" loading="lazy"></div>
+          <div class="subcategory-label">Trousers</div>
+        </a>
+        <a href="products.html?gender=men&category=shorts" class="subcategory-card">
+          <div class="subcategory-img"><img src="https://images.unsplash.com/photo-1591258370814-01609b341790?w=400&q=80&fit=crop" alt="Shorts" loading="lazy"></div>
+          <div class="subcategory-label">Shorts</div>
+        </a>
+        <a href="products.html?gender=men&category=coord-sets" class="subcategory-card">
+          <div class="subcategory-img"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80&fit=crop" alt="Co-Ord Sets" loading="lazy"></div>
+          <div class="subcategory-label">Co-Ord Sets</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">New <span class="text-accent">Arrivals</span></h2>
+      </div>
+      <div class="products-grid" id="menFeatured"></div>
+      <div style="text-align:center;margin-top:var(--sp-xl)">
+        <a href="products.html?gender=men" class="btn btn-outline">View All Men's</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo Banner -->
+  <div class="promo-banner reveal">
+    <div class="container">
+      <p class="promo-text">🚚 Free Delivery on Men's Orders over <strong>₹999</strong> &nbsp;|&nbsp; Easy 30-Day Returns</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Siya Clothing</div>
+          <p class="footer-desc">Luxury streetwear for the modern individual.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          </div>
+        </div>
+        <div><h4 class="footer-heading">Men's</h4><ul class="footer-links"><li><a href="products.html?gender=men&category=t-shirts">T-Shirts</a></li><li><a href="products.html?gender=men&category=shirts">Shirts</a></li><li><a href="products.html?gender=men&category=hoodies">Hoodies</a></li><li><a href="products.html?gender=men&category=jackets">Jackets</a></li><li><a href="products.html?gender=men&category=jeans">Jeans</a></li></ul></div>
+        <div><h4 class="footer-heading">Company</h4><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="about.html">Careers</a></li></ul></div>
+        <div><h4 class="footer-heading">Support</h4><ul class="footer-links"><li><a href="contact.html">FAQ</a></li><li><a href="contact.html">Shipping &amp; Returns</a></li><li><a href="contact.html">Size Guide</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Siya Clothing. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+  <aside class="cart-flyout" id="cartFlyout" role="dialog" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-flyout-header"><h2 class="cart-flyout-title">Your Cart</h2><button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button></div>
+    <div class="cart-items" id="cartItems"><div class="cart-empty">Your cart is empty</div></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total</span><span class="amount" id="cartTotal">&#8377;0</span></div><button class="btn btn-primary" style="width:100%">Checkout</button></div>
+  </aside>
+  <div class="cart-overlay" id="wishlistOverlay" aria-hidden="true"></div>
+  <aside class="cart-flyout" id="wishlistFlyout" role="dialog" aria-label="Wishlist" aria-hidden="true">
+    <div class="cart-flyout-header"><h2 class="cart-flyout-title">Your Wishlist</h2><button class="cart-close" id="wishlistClose" aria-label="Close wishlist">&times;</button></div>
+    <div class="cart-items" id="wishlistItems"><div class="cart-empty">Your wishlist is empty</div></div>
+    <div class="cart-footer"><a href="products.html" class="btn btn-primary" style="width:100%;text-align:center;text-decoration:none">Browse Products</a></div>
+  </aside>
+  <div class="toast" id="toast" role="alert" aria-live="assertive"><span class="toast-icon">&check;</span><span class="toast-message" id="toastMessage">Added!</span></div>
+
+  <script src="product-data.js"></script>
+  <script src="product-data-extra.js"></script>
+  <script src="app.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const grid = document.getElementById('menFeatured');
+      if (!grid || typeof PRODUCTS === 'undefined') return;
+      const menProducts = PRODUCTS.filter(p => p.gender === 'men' && p.isNewArrival).slice(0, 4);
+      const fallback = PRODUCTS.filter(p => p.gender === 'men').slice(0, 4);
+      const display = menProducts.length ? menProducts : fallback;
+      grid.innerHTML = display.map(p => `
+        <article class="product-card" data-id="${p.id}">
+          <a href="product-detail.html?id=${p.id}" class="product-img-wrap">
+            <img src="${p.images[0]}" alt="${p.name}" loading="lazy">
+            ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+          </a>
+          <div class="product-info">
+            <h3 class="product-name"><a href="product-detail.html?id=${p.id}">${p.name}</a></h3>
+            <p class="product-category">${p.category}</p>
+            <div class="product-price">
+              <span class="price-current">&#8377;${p.price.toLocaleString('en-IN')}</span>
+              ${p.oldPrice ? `<span class="price-old">&#8377;${p.oldPrice.toLocaleString('en-IN')}</span>` : ''}
+            </div>
+          </div>
+        </article>`).join('');
+    });
+  </script>
+</body>
+</html>

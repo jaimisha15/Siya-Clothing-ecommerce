@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    Siya Clothing — Core Application JavaScript
    ============================================================
    Features:
@@ -506,24 +506,80 @@
     });
   }
 
-  /* ---------- Product Filters ---------- */
+  /* ---------- Dynamic Product Rendering & Filters ---------- */
+  function createProductCard(p) {
+    const oldPriceHTML = p.oldPrice ? `<span class="old-price">₹${p.oldPrice.toLocaleString('en-IN')}</span>` : '';
+    let badges = [];
+    if (p.isNewArrival) badges.push('<span class="product-badge">New</span>');
+    else if (p.isBestSeller) badges.push('<span class="product-badge">Best Seller</span>');
+    else if (p.badge) badges.push(`<span class="product-badge">${p.badge}</span>`);
+    
+    // Default image
+    const imgUrl = p.images && p.images.length > 0 ? p.images[0] : 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80&fit=crop';
+    
+    // Build comma separated sizes for data attribute
+    const sizesStr = p.sizes ? p.sizes.join(',') : '';
+
+    return `
+      <article class="product-card reveal" data-tilt 
+        data-gender="${p.gender || ''}"
+        data-category="${p.category || ''}" 
+        data-subcategory="${p.subcategory || ''}"
+        data-price="${p.price}" 
+        data-size="${sizesStr}" 
+        data-color="${(p.colors && p.colors[0]) || ''}">
+        <div class="product-card-img">
+          <img src="${imgUrl}" alt="${p.name}" loading="lazy">
+          ${badges.join('')}
+          <div class="product-overlay">
+            <a href="product-detail.html?id=${p.id}" class="btn btn-primary btn-sm">Quick View</a>
+          </div>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-category">${p.category}</div>
+          <h3 class="product-card-name">${p.name}</h3>
+          <div class="product-card-price">₹${p.price.toLocaleString('en-IN')} ${oldPriceHTML}</div>
+          ${p.rating ? `<div class="product-card-rating">★ ${p.rating.toFixed(1)}</div>` : ''}
+        </div>
+      </article>
+    `;
+  }
+
   function initFilters() {
     const productGrid = $('#productGrid');
     const skeletonGrid = $('#skeletonGrid');
-    if (!productGrid) return;
-
-    // Read URL filter param (e.g. ?filter=new)
-    const urlParams = new URLSearchParams(window.location.search);
-    let activeTag = urlParams.get('filter') || ''; // 'new', 'bestseller', 'sale', or ''
-
-    // Update page title if tag filter active
-    const pageTitle = $('.page-title');
-    if (pageTitle && activeTag) {
-      const labels = { new: 'New Arrivals', bestseller: 'Best Sellers', sale: 'Sale' };
-      if (labels[activeTag]) pageTitle.textContent = labels[activeTag];
+    const featuredGrid = $('#featuredGrid'); // For homepage
+    
+    // Check if we need to render the featured grid on homepage
+    if (featuredGrid && typeof PRODUCTS !== 'undefined') {
+      const featuredProducts = PRODUCTS.slice(0, 4); // Just take first 4 for now, or filter by isBestSeller
+      featuredGrid.innerHTML = featuredProducts.map(createProductCard).join('');
+      setTimeout(() => {
+        if (skeletonGrid) skeletonGrid.style.display = 'none';
+        featuredGrid.style.display = '';
+        initTiltCards();
+        initScrollReveal();
+      }, 1200);
     }
 
-    const filterCheckboxes = $$('[data-filter="category"], [data-filter="size"]');
+    if (!productGrid) return;
+    
+    // Read URL filter params
+    const urlParams = new URLSearchParams(window.location.search);
+    let activeTag = urlParams.get('filter') || ''; // 'new', 'bestseller', 'sale'
+    let urlGender = urlParams.get('gender') || '';
+    let urlCategory = urlParams.get('category') || '';
+    
+    // Update page title if tag filter active
+    const pageTitle = $('.page-title');
+    if (pageTitle) {
+      if (activeTag === 'new') pageTitle.textContent = 'New Arrivals';
+      else if (activeTag === 'bestseller') pageTitle.textContent = 'Best Sellers';
+      else if (activeTag === 'sale') pageTitle.textContent = 'Sale';
+      else if (urlGender) pageTitle.textContent = urlGender.charAt(0).toUpperCase() + urlGender.slice(1) + "'s Collection";
+    }
+
+    const filterCheckboxes = $$('.filter-sidebar input[type="checkbox"]');
     const colorSwatches = $$('.filter-sidebar .color-swatch');
     const priceRange = $('#priceRange');
     const priceValue = $('#priceValue');
@@ -533,25 +589,15 @@
     const filterToggle = $('#filterToggle');
     const filterSidebar = $('#filterSidebar');
 
-    // Show products after "loading"
-    setTimeout(() => {
-      if (skeletonGrid) skeletonGrid.style.display = 'none';
-      productGrid.style.display = '';
-      applyFilters(); // Apply filters (including URL param) immediately
-      initScrollReveal(); // Re-trigger reveal for product cards
-    }, 1200);
-
-    // Mobile filter toggle
-    if (filterToggle && filterSidebar) {
-      // Show toggle on mobile
-      if (window.innerWidth <= 768) filterToggle.style.display = '';
-      window.addEventListener('resize', () => {
-        filterToggle.style.display = window.innerWidth <= 768 ? '' : 'none';
-      });
-      filterToggle.addEventListener('click', () => {
-        filterSidebar.classList.toggle('open');
-        filterSidebar.style.display = filterSidebar.classList.contains('open') ? 'block' : '';
-      });
+    // Pre-check checkboxes based on URL
+    if (urlGender) {
+      const cb = $(`[data-filter="gender"][value="${urlGender}"]`);
+      if (cb) cb.checked = true;
+    }
+    if (urlCategory) {
+      // Subcategories are mapped to category filter in sidebar
+      const cb = $(`[data-filter="category"][value="${urlCategory}"]`);
+      if (cb) cb.checked = true;
     }
 
     // Active color filters
@@ -573,7 +619,7 @@
     if (priceRange) {
       priceRange.addEventListener('input', () => {
         const val = parseInt(priceRange.value);
-        if (priceValue) priceValue.textContent = `\u20B9${val.toLocaleString('en-IN')}`;
+        if (priceValue) priceValue.textContent = `₹${val.toLocaleString('en-IN')}`;
         applyFilters();
       });
     }
@@ -586,57 +632,92 @@
         filterCheckboxes.forEach(cb => cb.checked = false);
         colorSwatches.forEach(s => s.classList.remove('active'));
         activeColors = [];
-        activeTag = ''; // Clear URL tag filter too
-        if (priceRange) { priceRange.value = 2000; if (priceValue) priceValue.textContent = '₹2,000'; }
+        activeTag = '';
+        urlGender = '';
+        urlCategory = '';
+        if (priceRange) { priceRange.value = 4000; if (priceValue) priceValue.textContent = '₹4,000'; }
         if (sortSelect) sortSelect.value = 'featured';
         if (pageTitle) pageTitle.textContent = 'Shop All';
-        // Clean the URL param without reload
         history.replaceState(null, '', window.location.pathname);
         applyFilters();
       });
     }
 
+    // Mobile filter toggle
+    if (filterToggle && filterSidebar) {
+      if (window.innerWidth <= 768) filterToggle.style.display = '';
+      window.addEventListener('resize', () => {
+        filterToggle.style.display = window.innerWidth <= 768 ? '' : 'none';
+      });
+      filterToggle.addEventListener('click', () => {
+        filterSidebar.classList.toggle('open');
+        filterSidebar.style.display = filterSidebar.classList.contains('open') ? 'block' : '';
+      });
+    }
+
     function applyFilters() {
-      const cards = $$('.product-card', productGrid);
+      if (typeof PRODUCTS === 'undefined') return;
+
+      const activeGenders = $$('[data-filter="gender"]:checked').map(cb => cb.value);
       const activeCategories = $$('[data-filter="category"]:checked').map(cb => cb.value);
       const activeSizes = $$('[data-filter="size"]:checked').map(cb => cb.value);
+      const activeTags = $$('[data-filter="tag"]:checked').map(cb => cb.value); // If there are tag checkboxes
       const maxPrice = priceRange ? parseInt(priceRange.value) : 9999;
 
-      let visibleCards = [];
+      let filteredProducts = PRODUCTS.filter(p => {
+        const pGender = p.gender || '';
+        const pSubCat = p.subcategory || '';
+        const pCat = p.category || '';
+        const pSizes = p.sizes || [];
+        const pColors = p.colors || [];
+        const priceMatch = p.price <= maxPrice;
 
-      cards.forEach(card => {
-        const category = card.dataset.category;
-        const price = parseInt(card.dataset.price);
-        const sizes = (card.dataset.size || '').split(',');
-        const color = card.dataset.color;
-        const tag = card.dataset.tag || '';
+        const genderMatch = activeGenders.length === 0 || activeGenders.includes(pGender) || (urlGender && pGender === urlGender && activeGenders.length === 0);
+        const catMatch = activeCategories.length === 0 || activeCategories.includes(pSubCat) || activeCategories.includes(pCat.toLowerCase()) || (urlCategory && (pSubCat === urlCategory || pCat.toLowerCase() === urlCategory) && activeCategories.length === 0);
+        const sizeMatch = activeSizes.length === 0 || activeSizes.some(s => pSizes.includes(s));
+        const colorMatch = activeColors.length === 0 || activeColors.some(c => pColors.includes(c));
+        
+        let tagMatch = true;
+        if (activeTag === 'new') tagMatch = p.isNewArrival;
+        if (activeTag === 'bestseller') tagMatch = p.isBestSeller;
+        if (activeTag === 'sale') tagMatch = !!p.oldPrice;
 
-        const catMatch = activeCategories.length === 0 || activeCategories.includes(category);
-        const sizeMatch = activeSizes.length === 0 || activeSizes.some(s => sizes.includes(s));
-        const priceMatch = price <= maxPrice;
-        const colorMatch = activeColors.length === 0 || activeColors.includes(color);
-        const tagMatch = !activeTag || tag === activeTag;
+        if (activeTags.length > 0) {
+          if (activeTags.includes('new') && !p.isNewArrival) tagMatch = false;
+          if (activeTags.includes('bestseller') && !p.isBestSeller) tagMatch = false;
+          if (activeTags.includes('sale') && !p.oldPrice) tagMatch = false;
+        }
 
-        const visible = catMatch && sizeMatch && priceMatch && colorMatch && tagMatch;
-        card.style.display = visible ? '' : 'none';
-        if (visible) visibleCards.push(card);
+        return genderMatch && catMatch && sizeMatch && colorMatch && tagMatch && priceMatch;
       });
 
       // Sort
       if (sortSelect) {
         const sortVal = sortSelect.value;
-        visibleCards.sort((a, b) => {
-          const priceA = parseInt(a.dataset.price);
-          const priceB = parseInt(b.dataset.price);
-          if (sortVal === 'price-low') return priceA - priceB;
-          if (sortVal === 'price-high') return priceB - priceA;
-          return 0;
+        filteredProducts.sort((a, b) => {
+          if (sortVal === 'price-low') return a.price - b.price;
+          if (sortVal === 'price-high') return b.price - a.price;
+          if (sortVal === 'rating') return (b.rating || 0) - (a.rating || 0);
+          return 0; // 'featured' uses default array order
         });
-        visibleCards.forEach(card => productGrid.appendChild(card));
       }
 
-      if (resultsCount) resultsCount.textContent = visibleCards.length;
+      // Render
+      productGrid.innerHTML = filteredProducts.map(createProductCard).join('');
+      
+      if (resultsCount) resultsCount.textContent = filteredProducts.length;
+
+      // Re-init tilt and reveal for new elements
+      initTiltCards();
+      initScrollReveal();
     }
+
+    // Initial render
+    setTimeout(() => {
+      if (skeletonGrid) skeletonGrid.style.display = 'none';
+      productGrid.style.display = '';
+      applyFilters();
+    }, 800);
   }
 
   /* ---------- Newsletter Form ---------- */
@@ -1129,6 +1210,8 @@
         : PRODUCTS.filter(p =>
           p.name.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q) ||
+          (p.subcategory && p.subcategory.toLowerCase().includes(q)) ||
+          (p.gender && p.gender.toLowerCase().includes(q)) ||
           (p.description && p.description.toLowerCase().includes(q))
         ).slice(0, 8);
 
